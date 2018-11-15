@@ -1,5 +1,7 @@
 package MasterM;
 
+import java.util.Scanner;
+
 public class Mastermind {
 	private int nbCouleur;
 	private int nbPions;
@@ -44,8 +46,23 @@ public class Mastermind {
  * Différentes methodes à mettre en place  
  */
   
-   //public saisirEssai() {}
-   //public finJeu() {}
+   public void saisirEssai() {
+       Scanner input = new Scanner(System.in);
+       while (essaiActuel < nbEssais) {
+           System.out.printf("Essai %d: ", essaiActuel + 1);
+           String Essai = input.nextLine();
+       }
+   }
+   public void finJeu() {
+	   boolean gagnant = false;
+	   String messageFin;
+	   if (gagnant = true) {
+		   messageFin = "Vous avez gagné";
+	   }
+	   else {
+		   messageFin = "Vous avez perdu";
+	   }
+   }
 	
 /*
  * Getters & Setters	
