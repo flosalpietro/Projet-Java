@@ -22,18 +22,18 @@ public class Mastermind {
   
 /**
  * Constructeur pour paramétrer toutes les valeurs. Par de valeurs par défaut
- * @param nombreEssai nombre d'essai donné au joueur
- * @param longueurCode Longueur du code secret généré 
- * @param minValeurCode Valeur min des valeurs du code (inclusive)
- * @param maxCodeValue Valeur max des valeurs du code (inclusive)
- * @param duplicationAutorise Si la duplication est autorisé ou non
+ * @param nbEssai nombre d'essai donné au joueur
+ * @param nbPions Longueur du code secret généré 
+ * @param nbCouleurs Nombre de couleurs dans le jeu
+ * @param estGagnant Par défaut sur false
+ * @param redondance Si la redondance est autorisé ou non
 */
   public Mastermind(int nbEssais, int nbPions, int nbCouleur, boolean estGagnant, boolean redondance) {
       this.nbEssais = nbEssais;
       if (nbEssais < 1) {
           throw new IllegalArgumentException("Au moins 1 essai est requis!");
       }
-  	this.nbPions= nbPions ;
+    this.nbPions= nbPions ;
     this.nbCouleur = nbCouleur;
     this.estGagnant = estGagnant;
     this.redondance = redondance;
