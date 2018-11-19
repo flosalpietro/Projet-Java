@@ -1,4 +1,5 @@
-package jeu;
+// A ajouter pas la suite comme ça on pourrait avoir plusieurs niveaux de jeu
+package MasterM;
 
 public class ConfigurationPartie {
 		protected boolean duplicationAutorise;
