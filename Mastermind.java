@@ -43,16 +43,94 @@ public class Mastermind {
   }  
   
 /*
- * Différentes methodes à mettre en place  
+ * Methode qui lance le jeu;
+ */
+  
+  public void play() {
+	  System.out.println("Bienvenue dans MasterMind!");
+	  menu();
+  }
+  
+/**
+ * Menu qui permet de gèrer le jeu  
+ */
+  public void menu() {
+      System.out.println("Please Make a selection:"); 
+      System.out.println("[1] Play solo"); 
+      System.out.println("[2] Rules"); 
+      System.out.println("[3] Multiplayer");
+      System.out.println("[4] Exit"); 
+      System.out.println("Selection: "); 
+      
+      Scanner scanner = new Scanner (System.in);
+      int selection= scanner.nextInt();     
+     
+     switch (selection){
+           
+         case 1:
+        	  saisirEssai();
+              break;
+           
+      
+         case 2:
+        	  System.out.println("Voici les règles ...");
+        	  System.out.println("press [1] to menu");
+        	  Scanner back = new Scanner (System.in);
+        	  int select = back.nextInt();
+        	  
+        	  switch (select) {
+        	  case 1:
+        		  menu();
+        		  break;
+        	  default:
+        		  System.out.println("enter a valid number");
+        	  }
+              break;
+              
+              
+         case 3:
+        	  System.out.println("en cours de développement");
+        	  System.out.println("press [1] to menu");
+        	  Scanner back2 = new Scanner (System.in);
+        	  int select2 = back2.nextInt();
+        	  
+        	  switch (select2) {
+        	  case 1:
+        		  menu();
+        		  break;
+        	  default:
+        		  System.out.println("enter a valid number");}
+        	  break;
+        	  
+      
+         case 4:
+        	  System.out.println("Exit Successful");
+              System.exit(0);
+                      
+         default:
+        	 System.out.println("Please enter a valid selection.");
+         
+     };
+  }
+  
+/*
+ * Saisir la combinaison que l'on veut rentrer dans le jeu
+ * @param input Nous permet de rentrer le code  
  */
   
    public void saisirEssai() {
        Scanner input = new Scanner(System.in);
        while (essaiActuel < nbEssais) {
-           System.out.printf("Essai %d: ", essaiActuel + 1);
+    	   essaiActuel ++;
+           System.out.printf("Essai %d: ", essaiActuel );
            String Essai = input.nextLine();
        }
    }
+   
+/*
+ * Renvois les messages de fin de jeu
+ * @param gagnant Est à false tant que le joueur n'a pas gagné   
+ */
    public void finJeu() {
 	   boolean gagnant = false;
 	   String messageFin;
