@@ -31,11 +31,14 @@ public class Mastermind {
  * @param redondance Si la redondance est autorisé ou non
 */
   public Mastermind(int nbEssais, int nbPions, int nbCouleur, boolean estGagnant, boolean redondance) {
-      this.nbEssais = nbEssais;
+    this.nbEssais = nbEssais;
       if (nbEssais < 1) {
           throw new IllegalArgumentException("Au moins 1 essai est requis!");
       }
     this.nbPions= nbPions ;
+      if(nbPions != 4) {
+    	  throw new IllegalArgumentException("Il doit y avoir 4 pions")
+      }
     this.nbCouleur = nbCouleur;
     this.estGagnant = estGagnant;
     this.redondance = redondance;
@@ -122,8 +125,35 @@ public class Mastermind {
        Scanner input = new Scanner(System.in);
        while (essaiActuel < nbEssais) {
     	   essaiActuel ++;
-           System.out.printf("Essai %d: ", essaiActuel );
+           System.out.println("Essai "+ essaiActuel +":" );       
            String Essai = input.nextLine();
+           System.out.println("Vous avez saisi:"+ Essai);
+           
+           if(Essai.length() != 4) {
+        	   System.out.println("Vous devez rentrer 4 caractères, retentez!");
+        	   essaiActuel --;
+           }
+           if (essaiActuel == 10) {
+        	   System.out.println("Nombre d'essai maximum, vous avez perdu");
+        	   System.out.println("");
+        	   System.out.println("Please Make a selection:"); 
+        	   System.out.println("[1] Menu"); 
+        	   System.out.println("[2] Quit"); 
+        	   
+        	   Scanner finJeu = new Scanner (System.in);
+        	   int select= finJeu.nextInt(); 
+        	   switch(select) {
+               case 1:
+                  menu();
+                  break;
+                  
+               case 2:
+             	  System.out.println("Exit Successful");
+                  System.exit(0);        
+               default:
+             	  System.out.println("Please enter a valid selection.");
+        	   }
+           }
        }
    }
    
