@@ -1,13 +1,10 @@
-package jeu;
+package jeu2;
 
-
-import jeu.Param;
-
-public class Line extends Case {
+public class Line {
 	
 	
-	private Case[] tabCases = new Case[Param.NBCOLORS];
-
+	private Case[] tabCases = new Case[Param.NBCASES];
+	//public static int[] code_line = new int[Param.NBCOLORS];
 	
 	public Line() {
 		for(int i=0;i<Param.NBCASES;i++){
@@ -36,10 +33,12 @@ public class Line extends Case {
 		public boolean isLineComplete(){
 			int complete=0;
 			for(int i=0;i<Param.NBCASES;i++){
-				if(tabCases[i].getColor()!=0)complete++;
+				if(tabCases[i].getColor()!=0)
+					complete++;
 			}
 			if(complete==Param.NBCASES)return true;
 			return false;
-		}
+			
+			}
 	
 	}
