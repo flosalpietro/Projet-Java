@@ -1,13 +1,11 @@
-package jeu;
-
-import jeu.Param;
+package jeu2;
 
 public class Case {
 	
 	/**
 	 * Couleur de la case.
 	 */
-	protected static int color;
+	protected int color;
 	
 	/**
 	 * Constructeur d'une case avec la couleur "numColor".
@@ -15,22 +13,20 @@ public class Case {
 	 */
 	public Case(int numColor) {
 		this.color = numColor;
-		
 	}
+	
 	public Case() {
 		randomColor();
-		
 	}
 	/**
 	 * Choisit une couleur aléatoire pour la case.
 	 */
-	public static void randomColor(){
+	public void randomColor(){
 		int min = 1;
 		int max=Param.NBCOLORS;
-		int random;
-		random = min + (int)(Math.random() * ((max - min) + 1));
-		color = random;
-		
+		int random = min + (int)(Math.random() * ((max - min) + 1));
+
+		this.color = random;
 	}
 	
 	/**
@@ -40,6 +36,5 @@ public class Case {
 	public int getColor(){
 		return this.color;
 	}
-	
 	
 }
