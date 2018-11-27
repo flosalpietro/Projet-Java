@@ -3,17 +3,30 @@
  */
 package view;
 
+import java.util.Observer;
+
+import controller.MastermindController;
+import model.MastermindModel;
+
 /**
  * @author Florence
  *
  */
-public class MastermindView {
+public abstract class MastermindView implements Observer {
+
+	protected MastermindModel model;
+	protected MastermindController controller;
 
 	/**
 	 * 
 	 */
-	public MastermindView() {
-		// TODO Auto-generated constructor stub
+	public MastermindView(MastermindModel model, MastermindController controller) {
+		this.model=model;
+		this.controller=controller;
+		model.addObserver(this);
+
 	}
+
+
 
 }
