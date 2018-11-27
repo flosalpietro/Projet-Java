@@ -4,53 +4,58 @@ import java.util.ArrayList;
 
 import jeu2.Param;
 
-public class Board {
+public class Board extends Results {
 	
 	/**
 	 * Tableau des lignes déjà proposées
 	 */
-	private Line[] tabLine = new Line[Param.NBLINES];
+	protected Line[] tabLine = new Line[Param.NBLINES];
 	
 	/**
 	 * Ligne de proposition de couleurs 
 	 */
-	private Line propLine = new Line();
+	protected Line propLine = new Line();
 	
 	/**
 	 * Booléen servant à savoir si c'est au tour de cette board ci.
 	 */
-	private boolean turn = true;
+	protected boolean turn = true;
 	
 	/**
 	 * Tableau contenant les résultats des lignes proposées.
 	 */
-	//private ArrayList Results[] results = new Results[Param.NBLINES];
-	private ArrayList<Results> results = new ArrayList<Results>(Param.NBLINES); 
-	
+	//private  Results[] results = new Results[Param.NBLINES];
+	//protected ArrayList<Board> results = new ArrayList<Board>(Param.NBLINES); 
+	private Results[] results = new Results[Param.NBLINES];	
 	/**
 	 * Numéro de la case que l'on va remplir dans propLine au prochain addColor.
 	 */
-	private int currProp = 1;
+	protected int currProp = 1;
 	
 	/**
 	 * Ligne du résultat final à découvrir.
 	 */
-	private Line resultLine = new Line();
+	protected Line resultLine = new Line();
 	
 	/**
 	 * Ligne que l'on va proposer à la prochaine validation.
 	 */
-	private int currLine = 0;
+	protected int currLine = 0;
 	/**
 	 * Tableau pour savoir si la couleur dans la ligne de résultat à été vérifiée.
 	 */
-	private boolean isVerifiedResult[] = new boolean[Param.NBCASES];
+	protected boolean isVerifiedResult[] = new boolean[Param.NBCASES];
 	/**
 	 * Tableau pour savoir si la couleur dans la ligne de proposition à été vérifiée.
 	 */
-	private boolean isVerifiedProp[] = new boolean[Param.NBCASES];
+	protected boolean isVerifiedProp[] = new boolean[Param.NBCASES];
 	
-	
+
+	public Board() {
+		for(int i=0;i<Param.NBLINES;i++){
+			results[i] = new Results();
+		}
+	}
 	
 	/**
 	 * Ajoute la ligne propLine au tableau de lignes proposées en faisant les vérifications nécessaires.
@@ -110,12 +115,17 @@ public class Board {
 				}
 			}
 		}
+		
+		
+		results[currLine].setScore(sameColor, same);
 
-		Results r = new Results();
-		r.setScore(same, sameColor);
-		results.add(r);
-		System.out.println("**********************");
-		System.out.println(results.size());
+		//Board r = new Board();
+		//r.setScore(same, sameColor);
+		//results.add(r);
+		//show();
+		//System.out.println("**********************");
+		//System.out.println(results.size());
+		//for (Results g: results) System.out.println(g.getScore());
 	//	results[currLine] = r;
 	//	results[currLine].setScore(same, sameColor);
 	}
@@ -132,6 +142,14 @@ public class Board {
 		System.out.println("La combinaison était : "+ resultLine);
 	
 	}
-  
-  
-}
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+
+
