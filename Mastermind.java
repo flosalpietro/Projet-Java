@@ -1,5 +1,6 @@
 package MasterM;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,6 +11,9 @@ public class Mastermind {
 	private boolean estGagnant;
 	private boolean redondance;
 	private int essaiActuel;
+	private int essaiActuel1;
+	private int essaiActuel2;
+
 	String lettreRegle = "vrbnmo";
 	private String Essai;
 	private String random;
@@ -62,6 +66,20 @@ public class Mastermind {
 /**
  * Menu qui permet de gèrer le jeu  
  */
+  public void sousMenu() {
+      Scanner scanner = new Scanner (System.in);
+      int select= scanner.nextInt();
+      
+	  switch (select) {
+	  case 1:
+		  menu();
+		  break;
+	  default:
+		  System.out.println("enter a valid number");
+		  sousMenu();
+	  }
+  }
+  
   public void menu() {
       System.out.println("Please Make a selection:"); 
       System.out.println("[1] Play solo"); 
@@ -71,7 +89,13 @@ public class Mastermind {
       System.out.println("Selection: "); 
       
       Scanner scanner = new Scanner (System.in);
-      int selection= scanner.nextInt();     
+      int selection= scanner.nextInt();
+          
+          //try {
+            //   selection =  scanner.nextInt();
+          //}catch(InputMismatchException e){
+        	//  System.out.println("enter a valid number");}
+           
      
      switch (selection){
            
@@ -101,16 +125,7 @@ public class Mastermind {
         	  System.out.println("Si tu trouves la combinaisons en moins de 10 essais tu seras le gagnant de la partie.");
         	  System.out.println("");
         	  System.out.println("press [1] to menu");
-        	  Scanner back = new Scanner (System.in);
-        	  int select = back.nextInt();
-        	  
-        	  switch (select) {
-        	  case 1:
-        		  menu();
-        		  break;
-        	  default:
-        		  System.out.println("enter a valid number");
-        	  }
+              sousMenu();
               break;
               
               
@@ -119,14 +134,7 @@ public class Mastermind {
               multi();
         	  System.out.println("press [1] to menu");
         	  Scanner back2 = new Scanner (System.in);
-        	  int select2 = back2.nextInt();
-        	  
-        	  switch (select2) {
-        	  case 1:
-        		  menu();
-        		  break;
-        	  default:
-        		  System.out.println("enter a valid number");}
+              sousMenu();
         	  break;
         	  
       
@@ -136,6 +144,7 @@ public class Mastermind {
                       
          default:
         	 System.out.println("Please enter a valid selection.");
+        	 menu();
          
      };
   }
@@ -238,7 +247,7 @@ public class Mastermind {
 		  } 
            
            if(Essai.length() != 4) {
-        	   System.out.println("Vous devez rentrer 4 caractères, retentez!");
+        	   System.out.println("Vous devez rentrer 4 caractères qui sont dans la liste de couleur, retentez!");
         	   essaiActuel --;
            }
            if (essaiActuel == 10) {
@@ -345,24 +354,38 @@ public class Mastermind {
     	 Scanner input = new Scanner(System.in);
     	 codePl1();
     	 codePl2();
-    	 while(essaiActuel < nbEssais) {
-    		 essaiActuel++;
+    	 while(essaiActuel1 < nbEssais && essaiActuel2 < nbEssais) {
+    		 essaiActuel1++;
       	     System.out.println("Voici les couleurs disponibles: [v]=vert [r]=rouge [b]=bleu [n]=noir [m]=mauve [o]=orange");
       	     System.out.println(" --> '+' signifie que vous avez trouvé la couleur à la bonne place et '-' indique l'inverse.");
-             System.out.println("Joueur 1 Essai "+ essaiActuel +":" );
+             System.out.println("Joueur 1 Essai "+ essaiActuel1 +":" );
              String Essai = input.nextLine();
              System.out.println("Vous avez saisi:"+ Essai);
+             
+             if(Essai.length() != 4) {
+            	   System.out.println("Vous devez rentrer 4 caractères!");
+            	  }
+             
              comparePl1();
              System.out.println("");
+             essaiActuel2++;
       	     System.out.println("Voici les couleurs disponibles: [v]=vert [r]=rouge [b]=bleu [n]=noir [m]=mauve [o]=orange");
       	     System.out.println(" --> '+' signifie que vous avez trouvé la couleur à la bonne place et '-' indique l'inverse.");
-             System.out.println("Joueur 2 Essai "+ essaiActuel +":" );
+             System.out.println("Joueur 2 Essai "+ essaiActuel2 +":" );
              String Essai2 = input.nextLine();
              System.out.println("Vous avez saisi:"+ Essai2);
+             
+             if(Essai2.length() != 4) {
+                 System.out.println("Vous devez rentrer 4 caractères!");
+                 }
+             
              comparePl2();
              System.out.println("");
              
-             if (essaiActuel == 10) {
+             
+             
+             if (essaiActuel1 == 10 && essaiActuel2 == 10) {
+               System.out.println("");
           	   System.out.println("Nombre d'essai maximum, vous avez perdu");
           	   System.out.println("");
           	   System.out.println("Please Make a selection:"); 
@@ -385,9 +408,32 @@ public class Mastermind {
           	   }
              }
     		   
+             if(code2.equals(Essai)&&code1.equals(Essai2)){
+      			   System.out.println("");
+    		       System.out.println("!!!  Joueur 1 et 2 - Vous avez gagné  !!!");
+            	   System.out.println("");
+            	   System.out.println("Please Make a selection:"); 
+            	   System.out.println("[1] Menu"); 
+            	   System.out.println("[2] Quit"); 
+            	   
+            	   Scanner finJeu = new Scanner (System.in);
+            	   int select= finJeu.nextInt(); 
+            	   switch(select) {
+                    case 1:
+                      menu();
+                      break;
+                      
+                    case 2:
+                 	  System.out.println("Exit Successful");
+                      System.exit(0);        
+                    default:
+                 	  System.out.println("Please enter a valid selection.");
+                 	  menu();
+            	   }
+    		  } 
              if(code2.equals(Essai)){
       			   System.out.println("");
-    		       System.out.println("!!!  Vous avez gagné  !!!");
+    		       System.out.println("!!!  Joueur 1 - Vous avez gagné  !!!");
             	   System.out.println("");
             	   System.out.println("Please Make a selection:"); 
             	   System.out.println("[1] Menu"); 
@@ -410,7 +456,7 @@ public class Mastermind {
     		  } 
     		   if(code1.equals(Essai)){
       			   System.out.println("");
-    		       System.out.println("!!!  Vous avez gagné  !!!");
+    		       System.out.println("!!!  Joueur 2 -Vous avez gagné  !!!");
             	   System.out.println("");
             	   System.out.println("Please Make a selection:"); 
             	   System.out.println("[1] Menu"); 
@@ -431,8 +477,8 @@ public class Mastermind {
                  	  menu();
             	   }
     		  } 
-    		 
-    	 }
+    	 }	 
+    	 
      }
 
 //---------------------------------------------------------------------------------------     
@@ -523,6 +569,21 @@ public class Mastermind {
 
 	public void setCode2(String code2) {
 		this.code2 = code2;
+	}
+	public int getEssaiActuel1() {
+		return essaiActuel1;
+	}
+
+	public void setEssaiActuel1(int essaiActuel1) {
+		this.essaiActuel1 = essaiActuel1;
+	}
+
+	public int getEssaiActuel2() {
+		return essaiActuel2;
+	}
+
+	public void setEssaiActuel2(int essaiActuel2) {
+		this.essaiActuel2 = essaiActuel2;
 	}
 
 }
