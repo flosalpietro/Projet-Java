@@ -117,7 +117,7 @@ public class Board extends Results {
 		}
 		
 		
-		results[currLine].setScore(sameColor, same);
+		results[currLine].setScore(same, sameColor);
 
 		//Board r = new Board();
 		//r.setScore(same, sameColor);
