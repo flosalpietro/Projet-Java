@@ -2,10 +2,14 @@ package jeu2;
 
 public class Line {
 	
-	
+	/**
+	 * Tableau de cases constituant la ligne.
+	 */
 	private Case[] tabCases = new Case[Param.NBCASES];
-	//public static int[] code_line = new int[Param.NBCOLORS];
 	
+	/**
+	 * Constructeur de Line 
+	 */
 	public Line() {
 		for(int i=0;i<Param.NBCASES;i++){
 			tabCases[i] = new Case();
@@ -13,7 +17,7 @@ public class Line {
 	}
 		
 		/**
-		 * Méthode qui a pour but de creer une ligne aléatoire de couleurs.
+		 * Crée une ligne aléatoire de couleurs.
 		 */
 		public void createRandom(){
 			for(int i=0;i<Param.NBCASES;i++){
@@ -30,6 +34,10 @@ public class Line {
 			return tabCases[nbCase];
 		}
 		
+		/**
+		 * Méthode pour vérifier si la ligne est complète.
+		 * @return true si la ligne est complète, false si il manque une couleur à la ligne.
+		 */
 		public boolean isLineComplete(){
 			int complete=0;
 			for(int i=0;i<Param.NBCASES;i++){
@@ -40,5 +48,6 @@ public class Line {
 			return false;
 			
 			}
-	
-	}
+			
+		
+		  }
