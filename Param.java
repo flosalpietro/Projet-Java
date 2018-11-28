@@ -1,4 +1,4 @@
-package jeu;
+package jeu2;
 
 public class Param {
 	
@@ -13,15 +13,20 @@ public class Param {
 	 */
 	public static String[] COLORS = {"Vide", "Rouge", "Bleu", "Vert", "Orange", "Jaune", "Blanc", "Rose", "Mauve" };
 
-	
-	public static int NBCOLORS = 6;
-	
-	public static int NB_ESSAI = 12;
-	
-	public static int NBCASES = 4;
-	
 	/**
 	 * Nombre de lignes d'essai pour trouver la réponse.
 	 */
 	public static int NBLINES = 10;
+	
+	/**
+	 * Nombre de couleurs .
+	 */
+	public static int NBCOLORS = 6;
+	
+	/**
+	 * Longueur du code.
+	 */
+	public static int NBCASES = 4;
+	
+	
 }
