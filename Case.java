@@ -1,5 +1,9 @@
 package jeu2;
 
+import java.util.Scanner;
+
+import jeu2.Param;
+
 public class Case {
 	
 	/**
@@ -27,6 +31,20 @@ public class Case {
 		int random = min + (int)(Math.random() * ((max - min) + 1));
 
 		this.color = random;
+	}
+	/**
+	 * create color
+	 *@return un int que l'on a rentré à l'aide d'un scanner
+	 */
+	public int createColor() {
+		Scanner scan = new Scanner(System.in);  
+		String str = "";  
+		System.out.print(" entrer une couleur: "); 
+		str = scan.nextLine(); 
+		System.out.println(str);
+		int colorCreate = Integer.parseInt(str);
+		
+		return colorCreate;
 	}
 	
 	/**
