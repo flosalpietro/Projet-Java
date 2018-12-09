@@ -15,13 +15,13 @@ public class Case {
 	 * Constructeur d'une case avec la couleur "numColor".
 	 * @param numColor Couleur de la case.
 	 */
-	public Case(int numColor) {
-		this.color = numColor;
+	public Case() {
+		this.color = createColor();
 	}
 	
-	public Case() {
-		randomColor();
-	}
+	//public Case() {
+		//randomColor();
+	//}
 	/**
 	 * Choisit une couleur aléatoire pour la case.
 	 */
@@ -34,16 +34,16 @@ public class Case {
 	}
 	/**
 	 * create color
-	 *@return un int que l'on a rentré à l'aide d'un scanner
 	 */
 	public int createColor() {
+		//int colorCreate=0;
 		Scanner scan = new Scanner(System.in);  
 		String str = "";  
 		System.out.print(" entrer une couleur: "); 
 		str = scan.nextLine(); 
-		System.out.println(str);
+		System.out.println(str); 
+		//String scan; 
 		int colorCreate = Integer.parseInt(str);
-		
 		return colorCreate;
 	}
 	
