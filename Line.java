@@ -1,6 +1,6 @@
 package jeu2;
 
-public class Line {
+public class Line extends Case{
 	
 	/**
 	 * Tableau de cases constituant la ligne.
@@ -11,9 +11,10 @@ public class Line {
 	 * Constructeur de Line 
 	 */
 	public Line() {
-		for(int i=0;i<Param.NBCASES;i++){
-			tabCases[i] = new Case();
-		}
+		tabCases[0]= new Case();
+		tabCases[1]= new Case();
+		tabCases[2]= new Case();
+		tabCases[3]= new Case();
 	}
 		
 		/**
