@@ -1,6 +1,9 @@
 package jeu2;
 
-public class Line extends Case{
+
+import java.util.Scanner;
+
+public class Line {
 	
 	/**
 	 * Tableau de cases constituant la ligne.
@@ -11,12 +14,27 @@ public class Line extends Case{
 	 * Constructeur de Line 
 	 */
 	public Line() {
-		tabCases[0]= new Case();
-		tabCases[1]= new Case();
-		tabCases[2]= new Case();
-		tabCases[3]= new Case();
-	}
+		for(int i=0;i<Param.NBCASES;i++){
+			tabCases[i] = new Case();
+		}
 		
+		
+		
+	}
+	public void Prop() {
+		System.out.println("Veuillez entrer votre proposition :");
+		Scanner br = new Scanner(System.in); 
+		    String  lines = br.nextLine();    
+		    		
+		    String[] strs = lines.trim().split("(?!^)");
+		    
+		
+		for(int i=0;i<strs.length;i++){
+			tabCases[i] = new Case(Integer.parseInt(strs[i]));
+		}
+	} 
+	
+
 		/**
 		 * Crée une ligne aléatoire de couleurs.
 		 */
