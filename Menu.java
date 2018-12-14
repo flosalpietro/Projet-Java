@@ -13,7 +13,7 @@ public class Menu {
 	  }
 	  
 	/**
-	 * Menu qui permet de gèrer le jeu  
+	 * Menu qui permet de gÃ¨rer le jeu  
 	 */
 	  public void sousMenu() {
 		  System.out.println("press [1] to menu");
@@ -59,21 +59,21 @@ public class Menu {
 	         case 2:
 	        	  System.out.println("Multiplayer:");
 	        	  System.out.println("");
-	        	  System.out.println("Le Mastermind est un jeu qui se joue habituellement à deux,");
-	        	  System.out.println("le joueur 2 étant l’arbitre du premier.Le but du jeu est de deviner une séquence de 4 pions colorés en un minimum d’essai.");
-	        	  System.out.println("Ici c’est légèrement différent, puisque l’ « arbitre » en question, c’est le jeu.");
-	        	  System.out.println("Dans ce jeu, vous serez capable de jouer à deux, tour à tour.");
-	        	  System.out.println("A chaque tour, Une fois les pions placés, le jeu indique: Le nombre de pions de la bonne couleur bien placés en utilisant '+'");
-	        	  System.out.println("Le premier à trouver la séquence de pions, sera le gagnant de la partie.");
+	        	  System.out.println("Le Mastermind est un jeu qui se joue habituellement Ã  deux,");
+	        	  System.out.println("le joueur 2 Ã©tant lâ€™arbitre du premier.Le but du jeu est de deviner une sÃ©quence de 4 pions colorÃ©s en un minimum dâ€™essai.");
+	        	  System.out.println("Ici câ€™est lÃ©gÃ¨rement diffÃ©rent, puisque lâ€™ Â« arbitre Â» en question, câ€™est le jeu.");
+	        	  System.out.println("Dans ce jeu, vous serez capable de jouer Ã  deux, tour Ã  tour.");
+	        	  System.out.println("A chaque tour, Une fois les pions placÃ©s, le jeu indique: Le nombre de pions de la bonne couleur bien placÃ©s en utilisant '+'");
+	        	  System.out.println("Le premier Ã  trouver la sÃ©quence de pions, sera le gagnant de la partie.");
 	        	  System.out.println("");
 	        	  System.out.println("Solo:");
 	        	  System.out.println("");
-	        	  System.out.println("Le Mastermind est un jeu qui se joue habituellement à deux, mais ici l'on jouera contre le pc");
-	        	  System.out.println("Le but du jeu est de deviner une séquence de 4 pions colorés en moins de 10 essais");
-	        	  System.out.println("Ici l’ « arbitre » en question, c’est le jeu.");
-	        	  System.out.println("A chaque tour, Une fois les pions placés, le jeu indique:");
-	        	  System.out.println("Le nombre de pions de la bonne couleur bien placés en utilisant '+' et");
-	        	  System.out.println("le nombre de pions mal placés et/ou de mauvaise couleur par '-' .");
+	        	  System.out.println("Le Mastermind est un jeu qui se joue habituellement Ã  deux, mais ici l'on jouera contre le pc");
+	        	  System.out.println("Le but du jeu est de deviner une sÃ©quence de 4 pions colorÃ©s en moins de 10 essais");
+	        	  System.out.println("Ici lâ€™ Â« arbitre Â» en question, câ€™est le jeu.");
+	        	  System.out.println("A chaque tour, Une fois les pions placÃ©s, le jeu indique:");
+	        	  System.out.println("Le nombre de pions de la bonne couleur bien placÃ©s en utilisant '+' et");
+	        	  System.out.println("le nombre de pions mal placÃ©s et/ou de mauvaise couleur par '-' .");
 	        	  System.out.println("Si tu trouves la combinaisons en moins de 10 essais tu seras le gagnant de la partie.");
 	        	  System.out.println("");
 	              sousMenu();
@@ -81,7 +81,7 @@ public class Menu {
 	              
 	              
 	         case 3:
-	        	  System.out.println("en cours de développement");
+	        	  System.out.println("en cours de dÃ©veloppement");
 	              //multi();
 	              sousMenu();
 	        	  break;
@@ -101,26 +101,114 @@ public class Menu {
 	  public void jeuSolo() {
 			boolean win = false;	
 		    int numProp = 0;
+		    String[] propo = new String[11];
+		    int x = 0;
 			Board b1 = new Board();
 			b1.resultLine.createRandom();
+			
+			
 			while(!win && numProp <= 10) {
 			numProp++;
+			x++;
+            //propo[x]="erer";
 			b1.propLine.Prop();
 			
 			if(numProp>10) {
-				System.out.println("Vous avez déja tenté 10x, vous avez perdu");
+				System.out.println("Vous avez dÃ©ja tentÃ© 10x, vous avez perdu");
 			}
 			if(numProp==10) {
 				System.out.println("ATTENTION dernier essais");
 			}
-			
-			for (int i=0;i<Param.NBCASES;i++) {
-				System.out.println(b1.resultLine.getCase(i).getColor());
+			System.out.println("========vos combinaisons prÃ©cÃ©dentes: ===========");
+			switch(x) {
+			  case 1:
+				  System.out.println(propo[1]);
+				  break;
+			  case 2:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  break;
+			  case 3:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  break;
+			  case 4:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  break;
+			  case 5:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  System.out.println(propo[5]);
+				  break;
+			  case 6:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  System.out.println(propo[5]);
+				  System.out.println(propo[6]);
+				  break;
+			  case 7:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  System.out.println(propo[5]);
+				  System.out.println(propo[6]);
+				  System.out.println(propo[7]);
+				  break;
+			  case 8:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  System.out.println(propo[5]);
+				  System.out.println(propo[6]);
+				  System.out.println(propo[7]);
+				  System.out.println(propo[8]);
+				  break;
+			  case 9:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  System.out.println(propo[5]);
+				  System.out.println(propo[6]);
+				  System.out.println(propo[7]);
+				  System.out.println(propo[8]);
+				  System.out.println(propo[9]);
+				  break;
+			  case 10:
+				  System.out.println(propo[1]);
+				  System.out.println(propo[2]);
+				  System.out.println(propo[3]);
+				  System.out.println(propo[4]);
+				  System.out.println(propo[5]);
+				  System.out.println(propo[6]);
+				  System.out.println(propo[7]);
+				  System.out.println(propo[8]);
+				  System.out.println(propo[9]);
+				  System.out.println(propo[10]);
+				  break;
 			}
+			System.out.println("==============Combinaison secrÃ¨te ===========");
+			for (int i=0;i<Param.NBCASES;i++) {
+				System.out.print(b1.resultLine.getCase(i).getColor());
+				
+			}
+			System.out.println("");
 			System.out.println("================Votre proposition numero:"+numProp+"=====================");
 			for (int i=0;i<Param.NBCASES;i++) {
-			System.out.println(b1.propLine.getCase(i).getColor());
+			System.out.print(b1.propLine.getCase(i).getColor());
 			}
+			System.out.println("");
+			propo[x]= "" + b1.propLine.getCase(0).getColor() + b1.propLine.getCase(1).getColor() + b1.propLine.getCase(2).getColor() + b1.propLine.getCase(3).getColor();
 			System.out.println("==================");
 			b1.compare();
 			
