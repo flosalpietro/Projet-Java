@@ -51,7 +51,7 @@ public class Menu {
 	           
 	         case 1:
 	        	  jeuSolo();
-	        	  System.out.println("en cours de developpement");
+	        	  //System.out.println("en cours de developpement");
 	              sousMenu();
 	              break;
 	           
@@ -101,7 +101,7 @@ public class Menu {
 	  public void jeuSolo() {
 			boolean win = false;	
 		    int numProp = 0;
-		    String[] propo = new String[11];
+		    String[] propo = new String[12];
 		    int x = 0;
 			Board b1 = new Board();
 			b1.resultLine.createRandom();
@@ -113,90 +113,6 @@ public class Menu {
             //propo[x]="erer";
 			b1.propLine.Prop();
 			
-			if(numProp>10) {
-				System.out.println("Vous avez déja tenté 10x, vous avez perdu");
-			}
-			if(numProp==10) {
-				System.out.println("ATTENTION dernier essais");
-			}
-			System.out.println("========vos combinaisons précédentes: ===========");
-			switch(x) {
-			  case 1:
-				  System.out.println(propo[1]);
-				  break;
-			  case 2:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  break;
-			  case 3:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  break;
-			  case 4:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  break;
-			  case 5:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  System.out.println(propo[5]);
-				  break;
-			  case 6:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  System.out.println(propo[5]);
-				  System.out.println(propo[6]);
-				  break;
-			  case 7:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  System.out.println(propo[5]);
-				  System.out.println(propo[6]);
-				  System.out.println(propo[7]);
-				  break;
-			  case 8:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  System.out.println(propo[5]);
-				  System.out.println(propo[6]);
-				  System.out.println(propo[7]);
-				  System.out.println(propo[8]);
-				  break;
-			  case 9:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  System.out.println(propo[5]);
-				  System.out.println(propo[6]);
-				  System.out.println(propo[7]);
-				  System.out.println(propo[8]);
-				  System.out.println(propo[9]);
-				  break;
-			  case 10:
-				  System.out.println(propo[1]);
-				  System.out.println(propo[2]);
-				  System.out.println(propo[3]);
-				  System.out.println(propo[4]);
-				  System.out.println(propo[5]);
-				  System.out.println(propo[6]);
-				  System.out.println(propo[7]);
-				  System.out.println(propo[8]);
-				  System.out.println(propo[9]);
-				  System.out.println(propo[10]);
-				  break;
-			}
 			System.out.println("==============Combinaison secrète ===========");
 			for (int i=0;i<Param.NBCASES;i++) {
 				System.out.print(b1.resultLine.getCase(i).getColor());
@@ -209,9 +125,106 @@ public class Menu {
 			}
 			System.out.println("");
 			propo[x]= "" + b1.propLine.getCase(0).getColor() + b1.propLine.getCase(1).getColor() + b1.propLine.getCase(2).getColor() + b1.propLine.getCase(3).getColor();
-			System.out.println("==================");
-			b1.compare();
 			
+			System.out.println("========Resultat==========");
+			b1.compare();
+			System.out.println("");
+			
+			System.out.println("========vos combinaisons précédentes: ===========");
+			
+			switch(x) {
+			  case 1:
+				  System.out.println("1)"+propo[1]);
+				  break;
+			  case 2:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  break;
+			  case 3:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  break;
+			  case 4:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  break;
+			  case 5:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  System.out.println("5)"+propo[5]);
+				  break;
+			  case 6:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  System.out.println("5)"+propo[5]);
+				  System.out.println("6)"+propo[6]);
+				  break;
+			  case 7:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  System.out.println("5)"+propo[5]);
+				  System.out.println("6)"+propo[6]);
+				  System.out.println("7)"+propo[7]);
+				  break;
+			  case 8:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  System.out.println("5)"+propo[5]);
+				  System.out.println("6)"+propo[6]);
+				  System.out.println("7)"+propo[7]);
+				  System.out.println("8)"+propo[8]);
+				  break;
+			  case 9:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  System.out.println("5)"+propo[5]);
+				  System.out.println("6)"+propo[6]);
+				  System.out.println("7)"+propo[7]);
+				  System.out.println("8)"+propo[8]);
+				  System.out.println("9)"+propo[9]);
+				  break;
+			  case 10:
+				  System.out.println("1)"+propo[1]);
+				  System.out.println("2)"+propo[2]);
+				  System.out.println("3)"+propo[3]);
+				  System.out.println("4)"+propo[4]);
+				  System.out.println("5)"+propo[5]);
+				  System.out.println("6)"+propo[6]);
+				  System.out.println("7)"+propo[7]);
+				  System.out.println("8)"+propo[8]);
+				  System.out.println("9)"+propo[9]);
+				  System.out.println("10)"+propo[10]);
+				  break;
+			  default:
+				  b1.lose();
+				  break;
+			}
+			System.out.println("");
+			if(numProp>9) {
+				//System.out.println("Vous avez déja tenté 10x, vous avez perdu");
+				b1.lose();
+				win = true;
+			}
+			if(numProp==9) {
+				System.out.println("ATTENTION dernier essais");
+			}
+            if(b1.propLine.getCase(0).getColor() + b1.propLine.getCase(1).getColor() + b1.propLine.getCase(2).getColor() + b1.propLine.getCase(3).getColor() == b1.resultLine.getCase(0).getColor() + b1.resultLine.getCase(1).getColor() + b1.resultLine.getCase(2).getColor() + b1.resultLine.getCase(3).getColor()) {
+            	b1.win();
+            	win = true;
+            }
 			}
 			
 	  }
