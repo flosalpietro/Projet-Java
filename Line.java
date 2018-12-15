@@ -27,10 +27,18 @@ public class Line {
 		    String  lines = br.nextLine();    
 		    		
 		    String[] strs = lines.trim().split("(?!^)");
-		    
+		if(strs.length!=4) {
+			System.out.println("veuillez entrer 4 caracteres");
+			Prop();
+		} 
+		
 		
 		for(int i=0;i<strs.length;i++){
+			try {
 			tabCases[i] = new Case(Integer.parseInt(strs[i]));
+			}catch(NumberFormatException ex){
+				System.out.println("veuillez rentrer un chiffre comme caractère");;
+			}
 		}
 	} 
 	
