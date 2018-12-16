@@ -27,19 +27,21 @@ public class Line {
 		    String  lines = br.nextLine();    
 		    		
 		    String[] strs = lines.trim().split("(?!^)");
-		if(strs.length!=4) {
-			System.out.println("veuillez entrer 4 caracteres");
+		if(strs.length!=Param.NBCASES) {
+			System.out.println("veuillez entrer une combinaison à"+Param.NBCASES+" caracteres");
 			Prop();
 		} 
 		
-		try{
-		   for(int i=0;i<strs.length;i++){
+		try {
+		for(int i=0;i<strs.length;i++){
+			
 			tabCases[i] = new Case(Integer.parseInt(strs[i]));
-		 }
-		}catch(NumberFormatException ex){
-				System.out.println("veuillez rentrer un chiffre comme caractère");;
+			}}
+		catch(NumberFormatException ex){
+				System.out.println("veuillez entrer un chiffre comme caractère");
 			}
-		} 
+		
+	} 
 	
 
 		/**
