@@ -1,4 +1,4 @@
-package MasterM;
+package jeu2;
 import java.net.*;
 import java.io.*;
 
