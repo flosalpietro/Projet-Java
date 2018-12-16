@@ -32,15 +32,14 @@ public class Line {
 			Prop();
 		} 
 		
-		
-		for(int i=0;i<strs.length;i++){
-			try {
+		try{
+		   for(int i=0;i<strs.length;i++){
 			tabCases[i] = new Case(Integer.parseInt(strs[i]));
-			}catch(NumberFormatException ex){
+		 }
+		}catch(NumberFormatException ex){
 				System.out.println("veuillez rentrer un chiffre comme caractère");;
 			}
-		}
-	} 
+		} 
 	
 
 		/**
