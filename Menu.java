@@ -54,7 +54,25 @@
 		           
 		      
 		         case 2:
-		        	  System.out.println(Param.RULES_CONS);
+		        	  System.out.println("Multiplayer:");
+		        	  System.out.println("");
+		        	  System.out.println("Le Mastermind est un jeu qui se joue habituellement à deux,");
+		        	  System.out.println("Le but du jeu est de deviner une séquence de 4 pions colorés en un minimum d’essai.");
+		        	  System.out.println("Ici c’est légèrement différent, puisque l’ « arbitre » en question, c’est le jeu.");
+		        	  System.out.println("Dans ce jeu, vous serez capable de jouer à deux, tour à tour.");
+		        	  System.out.println("A chaque tour, Une fois les pions placés, le jeu indique: Le nombre de pions de la bonne couleur bien placés en utilisant '+'");
+		        	  System.out.println("Le premier à trouver la séquence de pions, sera le gagnant de la partie.");
+		        	  System.out.println("");
+		        	  System.out.println("Solo:");
+		        	  System.out.println("");
+		        	  System.out.println("Le Mastermind est un jeu qui se joue habituellement à deux, mais ici l'on jouera contre le pc");
+		        	  System.out.println("Le but du jeu est de deviner une séquence de 4 pions colorés en moins de 10 essais");
+		        	  System.out.println("Ici l’ « arbitre » en question, c’est le jeu.");
+		        	  System.out.println("A chaque tour, Une fois les pions placés, le jeu indique:");
+		        	  System.out.println("Le nombre de pions de la bonne couleur bien placés en utilisant '+' et");
+		        	  System.out.println("le nombre de pions mal placés et/ou de mauvaise couleur par '-' .");
+		        	  System.out.println("Si tu trouves la combinaisons en moins de 10 essais tu seras le gagnant de la partie.");
+		        	  System.out.println("");
 		        	  sousMenu();
 		              break;
 		              
@@ -102,14 +120,6 @@
 				System.out.println("========Resultat==========");
 				b1.addLine();
 				b1.currProp=1;
-				if(b1.results[b1.currLine].getScore() == Param.NBCASES){
-					if(b1.turn){
-						b1.win();
-						win = true;
-					}else{
-						b1.lose();
-						win = true;
-					}}
 					
 				System.out.println();
 				
@@ -117,9 +127,18 @@
 				
 				b1.previous_Prop();
 				
+				System.out.println("");
+				if(b1.currLine>9) {
+					b1.lose();
+					win = true;
+				}
 				if(b1.currLine==9) {
 					System.out.println("ATTENTION dernier essais");
 				}
+	            if(b1.propLine.getCase(0).getColor() + b1.propLine.getCase(1).getColor() + b1.propLine.getCase(2).getColor() + b1.propLine.getCase(3).getColor() == b1.resultLine.getCase(0).getColor() + b1.resultLine.getCase(1).getColor() + b1.resultLine.getCase(2).getColor() + b1.resultLine.getCase(3).getColor()) {
+	            	b1.win();
+	            	win = true;
+	            }
 	            
 				}
 				
