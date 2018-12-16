@@ -1,4 +1,5 @@
 
+	
 	package jeu2;
 
 	import java.util.Scanner;
@@ -92,7 +93,7 @@
 					
 				}
 				System.out.println("");
-				System.out.println("================Votre proposition numero:"+b1.currLine+1+"=====================");
+				System.out.println("================Votre proposition numero:"+(b1.currLine+1)+"=====================");
 				for (int i=0;i<Param.NBCASES;i++) {
 				System.out.print(b1.propLine.getCase(i).getColor());
 				}
@@ -108,10 +109,8 @@
 					}else{
 						b1.lose();
 						win = true;
-					}
-					if(b1.currLine==Param.NBLINES-1 && (!(b1.results[b1.currLine].getScore() == Param.NBCASES)))b1.lose();
-					b1.currLine++;
-				}
+					}}
+					
 				System.out.println();
 				
 				System.out.println("========vos combinaisons précédentes: ===========");
@@ -126,5 +125,7 @@
 				
 		  }
 	}
+
+
 
 
