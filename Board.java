@@ -38,7 +38,7 @@ public class Board  {
 	/**
 	 * Ligne que l'on va proposer à la prochaine validation.
 	 */
-	protected int currLine = 0;
+	protected  int currLine = 0;
 	
 	private boolean isVerifiedResult[] = new boolean[Param.NBCASES];
 	
@@ -71,7 +71,11 @@ public class Board  {
 			isVerifiedProp[i] = false;
 		}
 		
+		if(currLine==Param.NBLINES-1 && (!(results[currLine].getScore() == Param.NBCASES))) {
+			lose();
 		
+	}
+		currLine++;
 		
 		
 		
@@ -79,12 +83,12 @@ public class Board  {
 	
 	
 	public void previous_Prop() {
-		for(int j=1;j<currLine;j++) {
-			System.out.println("Proposition "+j+":");
+		for(int j=0;j<currLine;j++) {
+			System.out.print("Proposition "+(j+1)+": ");
 		for (int i=0;i<Param.NBCASES;i++) {
-			System.out.print(tabLine[currLine-1].getCase(i).getColor());
+			System.out.print(tabLine[j].getCase(i).getColor());
 			}
-		
+		System.out.println();
 		}
 	}
 	
@@ -153,5 +157,6 @@ public class Board  {
 	
 	
 	
+
 
 
