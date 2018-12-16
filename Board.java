@@ -22,8 +22,9 @@ public class Board  {
 	/**
 	 * Tableau contenant les résultats des lignes proposées.
 	 */
-
-	private Results[] results = new Results[Param.NBLINES];	
+	//private  Results[] results = new Results[Param.NBLINES];
+	//protected ArrayList<Board> results = new ArrayList<Board>(Param.NBLINES); 
+	protected Results[] results = new Results[Param.NBLINES];	
 	/**
 	 * Numéro de la case que l'on va remplir dans propLine au prochain addColor.
 	 */
@@ -39,6 +40,11 @@ public class Board  {
 	 */
 	protected int currLine = 0;
 	
+	private boolean isVerifiedResult[] = new boolean[Param.NBCASES];
+	
+	private boolean isVerifiedProp[] = new boolean[Param.NBCASES];
+	
+	
 	
 	
 
@@ -48,6 +54,39 @@ public class Board  {
 		}
 	}
 	
+	/**
+	 * Ajoute la ligne propLine au tableau de lignes proposées en faisant les vérifications nécessaires.
+	 */
+	public void addLine(){
+		
+		compare();
+		tabLine[currLine] = new Line();
+		for(int i=0;i<Param.NBCASES;i++){
+			//tabLine[currLine] = new Line();
+			tabLine[currLine].getCase(i).setColor(propLine.getCase(i).getColor());
+			//propLine.getCase(i).setColor(0);
+		}
+		for(int i=0;i<Param.NBCASES;i++){
+			isVerifiedResult[i] = false;
+			isVerifiedProp[i] = false;
+		}
+		
+		
+		
+		
+		
+	} 
+	
+	
+	public void previous_Prop() {
+		for(int j=1;j<currLine;j++) {
+			System.out.println("Proposition "+j+":");
+		for (int i=0;i<Param.NBCASES;i++) {
+			System.out.print(tabLine[currLine-1].getCase(i).getColor());
+			}
+		
+		}
+	}
 	
 	/**
 	 * Compare la ligne de proposition et la ligne de résultat tout en implémentant les résultats de la ligne correspondante.
@@ -56,9 +95,9 @@ public class Board  {
 		int sameColor=0;
 		int same=0;
 	
-		 boolean isVerifiedResult[] = new boolean[Param.NBCASES]; //Tableau pour savoir si la couleur dans la ligne de résultat à été vérifiée.
+		 //boolean isVerifiedResult[] = new boolean[Param.NBCASES]; //Tableau pour savoir si la couleur dans la ligne de résultat à été vérifiée.
 	
-		 boolean isVerifiedProp[] = new boolean[Param.NBCASES]; //Tableau pour savoir si la couleur dans la ligne de proposition à été vérifiée.
+		 //boolean isVerifiedProp[] = new boolean[Param.NBCASES]; //Tableau pour savoir si la couleur dans la ligne de proposition à été vérifiée.
 		
 		
 		for(int i=0;i<Param.NBCASES;i++){
@@ -87,30 +126,30 @@ public class Board  {
 		
 		results[currLine].setScore(same, sameColor);
 
+		
+	}
 	
+	public  void show_code() {
+		for (int i=0;i<Param.NBCASES;i++) {
+			System.out.print(resultLine.getCase(i).getColor());
+	}
 	}
 	
 	
 	public void win() {
 		System.out.println("Félicitation, vous avez trouvé la combinaison secrète ! ");
-		System.out.println("La combinaison était : "+ resultLine);
+		
 	
 	}
 	
-	public void lose() {
+	public  void lose() {
 		System.out.println("Game Over, vous n'avez pas trouvé la combinaison secrète ");
-		System.out.println("La combinaison était : "+ resultLine);
+		show_code();
 	
 	}
 	
 	  
 	}
-	
-	
-	
-
-
-
 	
 	
 	
