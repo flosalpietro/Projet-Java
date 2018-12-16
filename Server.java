@@ -1,3 +1,5 @@
+// à lancer dans un autre workspace avant le client
+
 package MasterM;
 import java.net.*;
 import java.io.*;
