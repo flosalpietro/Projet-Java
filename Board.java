@@ -148,7 +148,9 @@ public class Board  {
 	
 	public  void lose() {
 		System.out.println("Game Over, vous n'avez pas trouvé la combinaison secrète ");
+		System.out.println("voici le code qu'il fallait trouver:");
 		show_code();
+		System.out.println("");
 	
 	}
 	
