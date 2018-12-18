@@ -1,0 +1,69 @@
+package jeu2Graphique;
+
+import java.awt.Color;
+import javax.swing.JPanel;
+
+/**
+ * <p>La classe Line représente une ligne sur le plateau de jeu. Elle est composé de cases de la classe Case.</p>
+ * 
+ */
+@SuppressWarnings("serial")
+public class Line extends JPanel{
+	/**
+	 * Tableau de cases constituant la ligne.
+	 */
+	private Case[] tabCases = new Case[Param.NBCASES];
+	/**
+	 * Constructeur de Line instanciant les cases en les mettant dans un tableau.
+	 */
+	public Line() {
+		for(int i=0;i<Param.NBCASES;i++){
+			tabCases[i] = new Case();
+			this.add(tabCases[i].getLbl());
+		}
+		this.setOpaque(true);
+		this.setBackground(new Color(0, 0, 0, 0));
+	}
+	/**
+	 * Méthode qui a pour but de creer une ligne aléatoire de couleurs.
+	 */
+	public void createRandom(){
+		for(int i=0;i<Param.NBCASES;i++){
+			tabCases[i].randomColor();
+		}
+	}
+	/**
+	 * Méthode pour savoir si la ligne est complète.
+	 * @return true si la ligne est complète, false à l'inverse.
+	 */
+	public boolean isLineComplete(){
+		int complete=0;
+		for(int i=0;i<Param.NBCASES;i++){
+			if(tabCases[i].getColor()!=0)
+				complete++;
+		}
+		if(complete==Param.NBCASES)return true;
+		return false;
+	}
+	/**
+	 * Renvoie la case souhaitée.
+	 * @param nbCase Le numéro de la case que l'on veut récupérer.
+	 * @return La case demandée en paramètre.
+	 */
+	public Case getCase(int nbCase){
+		return tabCases[nbCase];
+	}
+	/**
+	 * Cache ou affiche les couleurs de la ligne concernée.
+	 * @param hide true pour cacher la ligne, false pour l'afficher.
+	 */
+	public void hide(boolean hide){
+		if(hide){
+			for(int i=0;i<Param.NBCASES;i++)tabCases[i].hide();
+		}else{
+			for(int i=0;i<Param.NBCASES;i++)tabCases[i].show();
+		}
+		
+	}
+}
+
