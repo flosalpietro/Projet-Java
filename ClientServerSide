@@ -86,7 +86,6 @@ public class ClientServerSide implements Runnable{
 		while (!socket.isClosed()){
 			try {
 				Object o = ois.readObject();
-				if(o!=null)b.processReceivedObject(o);
 			} catch (ClassNotFoundException e) {
 				System.out.println("\nErreur inconnue");
 			} catch (IOException e) {
