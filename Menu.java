@@ -2,7 +2,12 @@
 	
 	package jeu2;
 
-	import java.util.Scanner;
+	import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
 
 	public class Menu {
 		/*
@@ -79,7 +84,16 @@
 		              
 		         case 3:
 		        	  System.out.println("en cours de développement");
-		              //multi();
+				try {
+					multi();
+					multi2();
+					multi();
+					multi2();
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		              sousMenu();
 		        	  break;
 		        	  
@@ -142,6 +156,40 @@
 	            
 				}
 				
+		  }
+		  
+		  public void multi() throws IOException{
+				Socket s = new Socket("localhost", 4998);
+				int testt = 1;
+				PrintWriter pr = new PrintWriter(s.getOutputStream());
+				pr.println(testt);
+				pr.flush();
+				
+				 InputStreamReader in = new InputStreamReader(s.getInputStream());
+				 BufferedReader bf = new BufferedReader(in);
+				 
+				 String str = bf.readLine();
+				 System.out.println("server répond à joueur1:"+str);
+				 
+				 s.close();
+		  }
+		  static int testt2=0;
+		  public void multi2() throws IOException{
+				Socket s = new Socket("localhost", 4998);
+				Board b1 = new Board();
+				//int testt = 2;
+				testt2 = testt2 +1;
+				PrintWriter pr = new PrintWriter(s.getOutputStream());
+				pr.println(testt2);
+				pr.flush();
+				
+				 InputStreamReader in = new InputStreamReader(s.getInputStream());
+				 BufferedReader bf = new BufferedReader(in);
+				 
+				 String str = bf.readLine();
+				 System.out.println("server répond à joueur2:"+str+" pour votre proposition qui est:"+testt2);
+				 
+				 s.close();
 		  }
 	}
 
