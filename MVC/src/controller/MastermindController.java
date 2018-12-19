@@ -5,6 +5,7 @@ package controller;
 
 import java.awt.event.ActionListener;
 
+
 import model.MastermindModel;
 import view.MastermindView;
 import view.MastermindViewConsole;
@@ -14,27 +15,21 @@ import view.MastermindViewConsole;
  * @author Florence
  *
  */
-public abstract class MastermindController implements ActionListener{
+public class MastermindController{
 
-	protected MastermindModel model;
-	protected MastermindViewConsole view;
+	private MastermindModel model;
 
 	/**
 	 * 
 	 */
-	public MastermindController(MastermindModel model, MastermindViewConsole view) {
-		// TODO Auto-generated constructor stub
+	public MastermindController(MastermindModel model) {
+
 		this.model=model;
-		this.view=view;
 	}
+	
+	/*----- METHODES-----*/
+	
+	
 
 
-	/*
-	 * Methode qui lance le jeu;
-	 */
-	  
-	  public void play() {
-		  System.out.println("Bienvenue dans MasterMind!");
-		  view.menuFirst();
-	  }
 }

@@ -50,10 +50,6 @@ public class Board  {
 	private boolean isVerifiedResult[] = new boolean[Param.NBCASES];
 	
 	private boolean isVerifiedProp[] = new boolean[Param.NBCASES];
-	
-	
-	
-	
 
 	public Board() {
 		for(int i=0;i<Param.NBLINES;i++){
