@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class TestJunit {
     
 	/*
-     * Test qui montre l'egalité
+     * Test qui montre l'egalitÃ©
      */
 	@Test
 	void testEquals() {
@@ -17,7 +17,7 @@ class TestJunit {
 	}
 	
 	/*
-	 * Test qui montre l'inégalité
+	 * Test qui montre l'inÃ©galitÃ©
 	 */
 	@Test
 	void testNotEquals() {
@@ -37,6 +37,21 @@ class TestJunit {
 		String x = "x";
 
 		assertNotSame(x, c2);
+	}
+	
+	/*
+	 * Test pour vÃ©rifier si c'est bien un chiffre en 0 et 9 qui est rentrÃ©
+	 */
+	@Test
+	void testCase() {
+		Board b =new Board();
+		int a = b.propLine.getCase(0).getColor();
+		a = 1;
+		//a = 45;
+		
+		if (a != 0 && a != 1 && a != 2 && a != 3 && a != 4 && a != 5 && a != 6 && a != 7 && a != 8 && a != 9) {
+			fail ("rentrez un nombre en 0 et 9");
+		}
 	}
 
 }
