@@ -27,7 +27,6 @@ public class MastermindViewConsole extends MastermindView implements Observer{
 	}
 
 
-	
 	/**
 	 * Lance l'application 
 	 */
