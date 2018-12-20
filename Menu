@@ -165,7 +165,7 @@ public class Menu extends JPanel implements ActionListener, ChangeListener{
 		JLabel background = new JLabel("");
 		background.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		background.setForeground(Color.RED);
-		background.setIcon(new ImageIcon(getClass().getResource()));
+		background.setIcon(new ImageIcon(getClass().getResource("/background.png")));
 		background.setBounds(0, 0, Param.FRAMEWIDTH, Param.FRAMEHEIGHT);
 		this.add(background);
 	}
