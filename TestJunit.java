@@ -53,5 +53,22 @@ class TestJunit {
 			fail ("rentrez un nombre en 0 et 9");
 		}
 	}
+	
+	/*
+	 * Test pour voir si la methode randomColor() fonctionne correctement
+	 */
+	@Test
+	void testRandomColor() {
+		Case c = new Case();
+		Line l = new Line();
+	    
+		c.randomColor();
+		int a = c.getColor();
+		
+		if (a != 0 && a != 1 && a != 2 && a != 3 && a != 4 && a != 5 && a != 6 && a != 7 && a != 8 && a != 9) {
+			fail ("rentrez un nombre en 0 et 9");
+		}
+		
+	}
 
 }
