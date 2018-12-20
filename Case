@@ -21,7 +21,7 @@ public class Case {
 	/**
 	 * Icone prévu pour cacher la case.
 	 */
-	private ImageIcon hideIcon = new ImageIcon(getClass().getResource());
+	private ImageIcon hideIcon = new ImageIcon(getClass().getResource("/11.png"));
 	/**
 	 * Icone de la couleur de la case.
 	 */
