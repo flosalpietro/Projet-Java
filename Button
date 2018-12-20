@@ -29,8 +29,8 @@ public class Button extends JButton implements MouseListener{
 		super(name);
 		this.name=name;
 		this.setHorizontalTextPosition(SwingConstants.CENTER);
-		this.btnIcon = new ImageIcon(getClass().getResource());
-		this.btnIconHover = new ImageIcon(getClass().getResource());
+		this.btnIcon = new ImageIcon(getClass().getResource("/"+this.name+".png"));
+		this.btnIconHover = new ImageIcon(getClass().getResource("/"+this.name+"Hover.png"));
 		this.setIcon(btnIcon);
 		this.setBorder(null);
 		this.addMouseListener(this);
