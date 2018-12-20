@@ -30,7 +30,7 @@ public class MainFrame extends JFrame{
 	 */
 	public MainFrame() {
 		setTitle("Mastermind");
-		setIconImage(new ImageIcon(getClass().getResource()).getImage());
+		setIconImage(new ImageIcon(getClass().getResource("/Ico.png")).getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setVisible(true);
