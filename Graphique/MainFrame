@@ -1,6 +1,8 @@
 package jeu2Graphique;
 
 import java.awt.CardLayout;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,19 +14,28 @@ import javax.swing.JPanel;
  */
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
-	/**
-	 * Cardlayout de la fenêtre.
-	 */
+	
 	private CardLayout cd;
-	/**
-	 * JPanel principal.
-	 */
 	private JPanel contentPane = new JPanel();
-	/**
-	 * Menu du jeu.
-	 */
 	private Menu menu;
 	
+	
+	/**
+	 * Lance l'application.
+	 * @param args Argument de main.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run(){
+				try {
+					MainFrame frame = new MainFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	/**
 	 * Create the frame.
 	 */
